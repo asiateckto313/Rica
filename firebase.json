@@ -1,0 +1,11 @@
+{
+  "hosting": [
+    {
+      "target": "ricva",
+      "source": ".",
+      "frameworksBackend": {
+        "region": "us-central1"
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ricvadb": {
+      "hosting": {
+        "ricva": [
+          "ricvadb"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ricvadb"
+  }
+}

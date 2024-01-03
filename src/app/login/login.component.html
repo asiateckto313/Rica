@@ -1,0 +1,204 @@
+<div class="container-fluid mt-5 full-height fullWHOnMobile"
+    fxLayout
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    fxLayoutGap="0"
+    fxLayoutGap.xs="0">
+
+    <div class="hideOnMobile login-card login-content mat-elevation-z8" 
+        fxFlex=60%
+        fxLayout="column"
+        fxLayoutAlign="end start"
+        [ngStyle]="unsplashClass()"
+    >
+        <div class="login-aside-overlay"></div>
+        <h1 class="login-welcome-text">Welcome!</h1>
+        <hr class="login-aside-hr">
+    </div>
+     
+  <div class="login-card mat-elevation-z8 mb-5 full-height full-width fullWHOnMobile" fxFlex=40%>
+    
+    <main class="login-content"
+          fxLayout="column"
+          fxLayoutAlign="center center">
+
+          <img src="../assets/logo/ricva.jpg" alt="ricva_logo">
+
+
+          <h4 class="login-header mt-3">Spéculations</h4>
+          <div style="display: flex; align-items:stretch">
+
+            <button type="button" class="mt-3 btn btn-outline-primary position-relative" 
+                style="border-radius: 20px;border-color: #CC6F47;color: black;"
+                (click)="toggleBadgeIndex(1)"
+            > 
+                <span>
+                    <img src="../assets/icons/cashew/icons8-cashew-32.png" width="25" height="25" />
+                </span>
+                Cajou 
+                <span  *ngIf="badgeIndex === 1" 
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"
+                    style="background: #00AD63 !important;" 
+                > 
+                    <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    height="11" 
+                    width="8" 
+                    fill="#FFF" 
+                    viewBox="0 0 448 512" 
+                > 
+                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--> 
+                    <path 
+                        d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" 
+                    /> 
+                </svg> 
+                    
+                </span> 
+            </button>
+    
+            <button type="button" class="mt-3 btn btn-outline-primary position-relative" 
+                style="border-radius: 20px;border-color: #CC6F47;color: black;margin-left: 0.5rem"
+                (click)="toggleBadgeIndex(2)"
+            > 
+                <span>
+                    <img src="../assets/icons/cocoa/icons8-cacaotier-32.png" width="20" height="20" />
+                </span>
+                Cacao 
+                <span *ngIf="badgeIndex === 2" 
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"
+                    style="background: #00AD63 !important;" 
+                > 
+                    <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    height="11" 
+                    width="8" 
+                    fill="#FFF" 
+                    viewBox="0 0 448 512" 
+                > 
+                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--> 
+                    <path 
+                        d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" 
+                    /> 
+                </svg> 
+                    
+                </span> 
+            </button>
+    
+            <button type="button" class="mt-3 btn btn-outline-primary position-relative" 
+                style="border-radius: 20px;border-color: #CC6F47;color: black;margin-left: 0.5rem"
+                (click)="toggleBadgeIndex(3)"
+            > 
+                <span>
+                    <img src="../assets/icons/hevea.png" width="20" height="20" />
+                </span>
+                Hévéa 
+                <span *ngIf="badgeIndex === 3" 
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"
+                    style="background: #00AD63 !important;" 
+                    
+                > 
+                    <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    height="11" 
+                    width="8" 
+                    fill="#FFF" 
+                    viewBox="0 0 448 512" 
+                > 
+                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--> 
+                    <path 
+                        d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" 
+                    /> 
+                </svg> 
+                    
+                </span> 
+            </button>
+    
+            <button type="button" class="mt-3 btn btn-outline-primary position-relative" 
+                style="border-radius: 20px;border-color: #CC6F47;color: black;margin-left: 0.5rem"
+                (click)="toggleBadgeIndex(4)"
+            > 
+                <span>
+                    <img src="../assets/icons/shea_butter.png" width="20" height="20" style="color: #FF8842;" />
+                </span>
+                Karité
+                
+                <a hidden href="https://fr.freepik.com/icone/beurre-karite_4543647#fromView=search&term=karit%C3%A9&track=ais&page=3&position=80&uuid=b7a29ff0-ecd9-4ff9-93b6-4cd55828936a">Icône de Freepik</a>
+                <span  *ngIf="badgeIndex === 4" 
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"
+                    style="background: #00AD63 !important;" 
+                > 
+                    <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    height="11" 
+                    width="8" 
+                    fill="#FFF" 
+                    viewBox="0 0 448 512" 
+                > 
+                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--> 
+                    <path 
+                        d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" 
+                    /> 
+                </svg> 
+                    
+                </span> 
+            </button>
+          </div>
+    
+
+        
+
+      <h4 class="login-header mb-3 mt-3">Connexion</h4>
+      
+      <!-- login form -->
+      <form [formGroup]="form" class="login-form align-items-center" fxLayout="column" (ngSubmit)="login($event)">
+
+        <mat-form-field appearance="outline" style="width: 285px;">
+          <mat-label>Email ou Téléphone</mat-label>
+          <input name="email" matInput (change)="handleChange($event)" placeholder="Type your email" type="email" formControlName='email'>
+          
+          <mat-error *ngIf="form.controls.email.hasError('email') && !form.controls.email.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="form.controls.email.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline" style="width: 285px;">
+          <mat-label>Password</mat-label>
+          <input name="passwd" matInput (change)="handleChange($event)" placeholder="Type your password" [type]="passType" formControlName='password'>
+          <mat-icon matSuffix *ngIf="passVisibility" (click) = "toggleVisibilty()">
+            <span class="material-symbols-outlined">
+                visibility_off
+            </span>
+          </mat-icon>
+          <mat-icon matSuffix *ngIf="! passVisibility" (click) = "toggleVisibilty()">
+            <span class="material-symbols-outlined">
+                visibility
+            </span>
+          </mat-icon>
+          <mat-error *ngIf="form.controls.password.hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+
+        <button type="submit" class="btn btn-primary" style="background: #CC6F47; border: none;width: 185px;height: 35px;">Connexion</button>
+
+      </form>
+      <div class="mt-3">
+        <small>Vous n'avez pas de compte ?</small><br/>
+        <a class="forgot-link" routerLink="/register">S'inscrire</a>
+      </div>
+      <div class="mt-3">
+        <small>Vous avez oublié votre mot de passe ?</small><br/>
+        <a class="forgot-link" routerLink="/forgot-password">Mot de passe oublié?</a>
+      </div>
+
+    </main>
+
+  </div>
+
+  
+</div>
