@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } 
 import {FormControl} from '@angular/forms';
 import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
 import {HttpClientModule} from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
@@ -13,12 +14,12 @@ import {HttpClientModule} from '@angular/common/http';
   standalone: true,
   imports: [ MenuItemList, CommonModule, FormsModule, 
     MatSelectCountryModule, FormsModule, ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,MatIconModule
   ],
   providers: [
   ],
   templateUrl: "./dashboard.component.html",
-//   templateUrl: "./onlyHeader/only-header.component.html",
+//   templateUrl: "../form/create-warehouse.component.html",
   styleUrl: '../metronic.style.scss'
 })
 export class DashboardComponent implements OnInit{

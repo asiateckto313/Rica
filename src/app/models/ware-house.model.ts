@@ -6,5 +6,6 @@ export class WareHouse {
         placer?: string;
         long?: string;
         lat?: string;
-
+        created_at?: Date = new Date()
+        updated_at?: Date
 }
