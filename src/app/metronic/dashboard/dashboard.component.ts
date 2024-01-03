@@ -3,7 +3,6 @@ import { MenuItemList } from '../../menu-item-list/menu-list.component';
 import { CommonModule } from '@angular/common';
 import {Country} from '@angular-material-extensions/select-country';
 import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {FormControl} from '@angular/forms';
 import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
 import {HttpClientModule} from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,7 +18,6 @@ import { MatIconModule } from '@angular/material/icon';
   providers: [
   ],
   templateUrl: "./dashboard.component.html",
-//   templateUrl: "../form/create-warehouse.component.html",
   styleUrl: '../metronic.style.scss'
 })
 export class DashboardComponent implements OnInit{

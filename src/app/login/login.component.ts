@@ -100,7 +100,7 @@ export class LoginComponent implements OnInit {
             if( userFound?.password === value.password ) {
                 alert("Redirection en cours...")
                 setTimeout(() => {
-                    window.location.href= '/dashboard'
+                    window.location.href= '/warehouse/list'
                     
                 }, 3000);
             } else {
