@@ -11,7 +11,7 @@ import { NgbdModalBasic } from '../../../../bootstrap/components/modal/modal.com
 import { WareHouseService } from '../../../../services/ware-house.service';
 
 @Component({
-  selector: 'app-create',
+  selector: 'app-update-ware-house',
   standalone: true,
   imports: [
     CommonModule,
@@ -25,18 +25,20 @@ import { WareHouseService } from '../../../../services/ware-house.service';
     
     AngularFirestore
   ],
-  templateUrl: "./create-warehouse.component.html",
+  templateUrl: "./update-warehouse.component.html",
   styleUrl: '../../../../metronic/metronic.style.scss'
 })
-export class CreateWareHouseComponent  implements OnInit{
+export class UpdateWareHouseComponent  implements OnInit{
     state: any = {}
     badgeIndex = 1
     disabled = true
+
 
     wareHouseColRef: any = AngularFirestoreCollection<WareHouse>
 
     private db: any = getFirestore()
     private dbPath = '/warehouse';
+    readonly = false
 
     form: any = FormGroup
 
@@ -50,10 +52,17 @@ export class CreateWareHouseComponent  implements OnInit{
   
     ngOnInit(): void {
     //   this.buildForm();
+    if( typeof window !== "undefined" ) {
+        if( localStorage.getItem( "ware" ) ) {
+            this.state = JSON.parse( localStorage.getItem('ware') ?? JSON.stringify({}))
+            localStorage.removeItem("ware")
+
+            this.readonly = localStorage.getItem('readOnly') === "true"
+        }
+    }
     }
 
     toggleBadgeIndex( index:number = 1) {
-        alert()
         this.badgeIndex = index
     }
 
@@ -64,9 +73,8 @@ export class CreateWareHouseComponent  implements OnInit{
         console.log("🚀 ~ file: app.component.ts:39 ~ AppComponent ~ handleChange ~ name:", name)
     
         if( name && value ) {
-            if( `${ value }`.length ) this.state[ name ] = value
-            else  this.state[ name ] = undefined
-
+    
+            this.state[ name ] = value
             this.disabled = Object.keys( this.state ).length < 5
         }
         
@@ -78,13 +86,12 @@ export class CreateWareHouseComponent  implements OnInit{
 
     createWareHouse(event: Event) {
         event.preventDefault();
-        if( ! this.state?.created_at ) this.state.created_at = new Date()
+        if( ! this.state?.updated_at ) this.state.updated_at = new Date()
         console.log("🚀 ~ file: create-warehouse.component.ts:75 ~ CreateWareHouseComponent ~ createWareHouse ~ this.state :", this.state )
-    
-        // this.warehouseServ.update( "VNVAoTWcF1RORegwVMCG", this.state )
-        // this.warehouseServ.delete( "VNVAoTWcF1RORegwVMCG" )
-        this.warehouseServ.create( this.state )
+
+        this.warehouseServ.update( this.state.id, this.state )
         .then( (doc: any) => {
+            window.location.href = '/warehouse/list'
             console.log("🚀 ~ file: create-warehouse.component.ts:77 ~ CreateWareHouseComponent ~ .then ~ doc:", doc)
             
         }).catch( error => {

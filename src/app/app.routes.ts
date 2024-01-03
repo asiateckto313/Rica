@@ -7,6 +7,8 @@ import { NotFoundComponent } from './general/not-found/not-found.component';
 import { CreateWareHouseComponent } from './metronic/form/ware-house/create/create-warehouse.component';
 import { HistoryWarehouse } from './metronic/form/ware-house/history/history.component';
 import { WareHouseComponent } from './metronic/form/ware-house/ware-house.component';
+import { StarterTemplate } from './bootstrap/components/empty/empty.component';
+import { UpdateWareHouseComponent } from './metronic/form/ware-house/update/update-warehouse.component';
 
 export const routes: Routes = [
     {
@@ -31,6 +33,12 @@ export const routes: Routes = [
 
     },
     {
+        path: 'empty',
+        component: StarterTemplate,
+        title: 'Dashboard page',
+
+    },
+    {
         path: 'warehouse',
         title: 'WareHouse',
         component: WareHouseComponent,
@@ -44,6 +52,12 @@ export const routes: Routes = [
             {
                 path: 'list',
                 component: HistoryWarehouse,
+                title: 'Warehouse history page',
+        
+            },
+            {
+                path: 'update',
+                component: UpdateWareHouseComponent,
                 title: 'Warehouse history page',
         
             },

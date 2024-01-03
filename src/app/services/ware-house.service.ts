@@ -1,32 +1,43 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { WareHouse } from '../models/ware-house.model';
-
+import {  getFirestore } from 'firebase/firestore';
+import { Firestore, collection, addDoc, getDocs, getDoc, collectionData, updateDoc, deleteDoc, doc, query } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WareHouseService {
     private dbPath = '/warehouse';
-    warehouseRef: AngularFirestoreCollection<WareHouse>;
+    private db: any = getFirestore()
+    warehouseRef: any = AngularFirestoreCollection<WareHouse>;
 
-  constructor(private db: AngularFirestore) {
-    this.warehouseRef = db.collection(this.dbPath);
+  constructor() {
+    this.warehouseRef =  collection(this.db,this.dbPath);
    }
 
-   getAll(): AngularFirestoreCollection<WareHouse> {
-    return this.warehouseRef;
+   getAll() {
+    return getDocs( query( this.warehouseRef ) )
+    
+
+    // return collectionData( this.warehouseRef ) as Observable<WareHouse[]>
+
   }
 
-  create(warehouse: WareHouse): any {
-    return this.warehouseRef.add({ ...warehouse });
+  create(warehouse: WareHouse) {
+    return addDoc(this.warehouseRef, {...warehouse, created_at: new Date(), updated_at: null })
+
   }
 
-  update(id: string, data: any): Promise<void> {
-    return this.warehouseRef.doc(id).update(data);
+  update(id: any, data: any) {
+    return updateDoc(
+        doc( this.db, this.dbPath, id ), 
+        { ...data, updated_at: new Date() }
+    )
   }
 
-  delete(id: string): Promise<void> {
-    return this.warehouseRef.doc(id).delete();
+  delete( id: any ): Promise<void> {
+    return deleteDoc(  doc( this.db, this.dbPath, id ) )
   }
 }

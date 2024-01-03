@@ -323,7 +323,6 @@
                                             <!--end::Notifications-->
                                         
                                         
-                                        
                                     </div>
                                     <!--end::Toolbar wrapper-->
                                 </div>
@@ -352,21 +351,21 @@
                       <div class="col">
                 
                         <label>Libellé</label>
-                        <input name="libelle" (change)="handleChange($event)" type="text" class="form-control" placeholder="">
+                        <input [value]="state?.libelle" name="libelle" (change)="handleChange($event)" type="text" class="form-control" placeholder="">
                 
                         <label class="mt-2">Superficie(M<sup>2</sup>)</label>
-                        <input name="superficie" (change)="handleChange($event)" type="number" class="form-control" placeholder="">
+                        <input [value]="state?.superficie" name="superficie" (change)="handleChange($event)" type="number" class="form-control" placeholder="">
                 
                         <label class="mt-2">Placer</label>
-                        <input name="placer" (change)="handleChange($event)" type="text" class="form-control" placeholder="">
+                        <input [value]="state?.placer" name="placer" (change)="handleChange($event)" type="text" class="form-control" placeholder="">
                 
                       </div>
                       <div class="col">
                         <label>Longitude</label>
-                        <input name="longitude" (change)="handleChange($event)" type="text" class="form-control" placeholder="">
+                        <input [value]="state?.longitude" name="longitude" (change)="handleChange($event)" type="text" class="form-control" placeholder="">
                 
                         <label class="mt-2">Latitude</label>
-                        <input name="latitude" (change)="handleChange($event)" type="number" class="form-control" placeholder="">
+                        <input [value]="state?.latitude" name="latitude" (change)="handleChange($event)" type="number" class="form-control" placeholder="">
                       </div>
                     </div>
                     <div class="row mt-3 justify-content-between">
@@ -377,13 +376,13 @@
                                 (click)="redirectHistory()"
         
                             >
-                                Annuler
+                                {{ readonly ? "Retour" : "Annuler"}}
                             </button>
 
-                            <button [disabled] = 'disabled'  type="submit" class="btn btn-primary float-end"
-                                style="background: #CC6F47; border: none;width: 165px;height: 45px;"
+                            <button [hidden]="readonly" [disabled] = 'disabled'  type="submit" class="btn btn-primary float-end text-center"
+                                style="background: #CC6F47; border: none;width: 165px;height: 50px;"
                             >
-                                Enregistrer
+                                Modifier
                             </button>
                             
                       </div>

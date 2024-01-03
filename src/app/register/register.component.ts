@@ -8,10 +8,8 @@ import {MatFormFieldModule} from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
 import { UserService } from '../services/user.service';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { DocumentReference, collection, getFirestore } from 'firebase/firestore';
-import { User } from '../models/user.model';
+import { AngularFirestore,  } from '@angular/fire/compat/firestore';
+import { DocumentReference } from 'firebase/firestore';
 
 
 @Component({

@@ -18,13 +18,14 @@ import {
   import { getPerformance, providePerformance } from '@angular/fire/performance';
   import { getStorage, provideStorage } from '@angular/fire/storage';
   import { environment } from '../environment/environment';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, provideHttpClient, withFetch} from '@angular/common/http';
 
 import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes), 
+    provideRouter(routes),
+    provideHttpClient(withFetch()),
     provideClientHydration(), provideAnimations(),
     importProvidersFrom([
         HttpClientModule,
